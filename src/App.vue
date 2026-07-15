@@ -1,85 +1,73 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { computed } from 'vue'
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
+
+import { useAuthStore } from '@/stores/auth'
+
+const route = useRoute()
+const router = useRouter()
+const auth = useAuthStore()
+
+const isLoginPage = computed(() => route.path === '/login')
+
+const navLinks = computed(() => [
+  { to: '/', label: 'Home' },
+  { to: '/heroes', label: 'Heroes' },
+  { to: '/profile', label: 'Profile' },
+])
+
+async function handleLogout() {
+  auth.logout()
+  await router.push('/login')
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <RouterView v-if="isLoginPage" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div v-else class="min-h-screen">
+    <header
+      class="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur-md"
+    >
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <RouterLink to="/" class="flex items-center gap-2 text-lg font-bold text-ink">
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white"
+          >
+            H
+          </span>
+          Heroes Admin
+        </RouterLink>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <nav class="flex items-center gap-1 sm:gap-2">
+          <RouterLink
+            v-for="link in navLinks"
+            :key="link.to"
+            :to="link.to"
+            class="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-muted hover:text-ink"
+            active-class="bg-brand-50 text-brand-700"
+          >
+            {{ link.label }}
+          </RouterLink>
 
-  <RouterView />
+          <div class="ml-2 flex items-center gap-3 border-l border-border pl-3">
+            <span class="hidden text-sm text-ink-soft sm:inline">
+              {{ auth.user?.username }}
+            </span>
+            <button
+              type="button"
+              class="rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-red-300 hover:text-red-600"
+              @click="handleLogout"
+            >
+              Logout
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      <RouterView />
+    </main>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
