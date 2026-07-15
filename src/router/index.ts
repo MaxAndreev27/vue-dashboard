@@ -8,7 +8,7 @@ const router = createRouter({
   routes,
 })
 
-const PUBLIC_ROUTES = ['/login']
+const PUBLIC_ROUTES = ['/', '/login', '/register']
 
 router.beforeEach(async (to) => {
   const auth = useAuthStore()
@@ -16,12 +16,12 @@ router.beforeEach(async (to) => {
 
   const isPublic = PUBLIC_ROUTES.includes(to.path)
 
-  if (!auth.isAuthenticated && !isPublic) {
-    return { path: '/login', query: { redirect: to.fullPath } }
+  if (auth.isAuthenticated && (to.path === '/login' || to.path === '/register')) {
+    return { path: '/' }
   }
 
-  if (auth.isAuthenticated && to.path === '/login') {
-    return { path: '/' }
+  if (!auth.isAuthenticated && !isPublic) {
+    return { path: '/login', query: { redirect: to.fullPath } }
   }
 
   return true

@@ -1,39 +1,39 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
 
 import { useAuthStore } from '@/stores/auth'
 
-const route = useRoute()
 const router = useRouter()
 const auth = useAuthStore()
 
-const isLoginPage = computed(() => route.path === '/login')
-
-const navLinks = computed(() => [
+const authedLinks = [
   { to: '/', label: 'Home' },
+  { to: '/users', label: 'Users' },
   { to: '/heroes', label: 'Heroes' },
   { to: '/profile', label: 'Profile' },
-])
+]
+
+const guestLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/login', label: 'Login' },
+  { to: '/register', label: 'Register' },
+]
+
+const navLinks = computed(() => (auth.isAuthenticated ? authedLinks : guestLinks))
 
 async function handleLogout() {
   auth.logout()
-  await router.push('/login')
+  await router.push('/')
 }
 </script>
 
 <template>
-  <RouterView v-if="isLoginPage" />
-
-  <div v-else class="min-h-screen">
-    <header
-      class="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur-md"
-    >
+  <div class="min-h-screen">
+    <header class="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur-md">
       <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <RouterLink to="/" class="flex items-center gap-2 text-lg font-bold text-ink">
-          <span
-            class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white"
-          >
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white">
             H
           </span>
           Heroes Admin
@@ -50,7 +50,7 @@ async function handleLogout() {
             {{ link.label }}
           </RouterLink>
 
-          <div class="ml-2 flex items-center gap-3 border-l border-border pl-3">
+          <div v-if="auth.isAuthenticated" class="ml-2 flex items-center gap-3 border-l border-border pl-3">
             <span class="hidden text-sm text-ink-soft sm:inline">
               {{ auth.user?.username }}
             </span>
