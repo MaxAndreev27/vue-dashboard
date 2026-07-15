@@ -50,8 +50,8 @@ onMounted(load)
   <div class="space-y-6">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <div>
-        <h1 class="text-2xl font-bold text-ink">Heroes</h1>
-        <p class="mt-1 text-sm text-ink-soft">Manage your league of heroes.</p>
+        <h1 class="text-2xl font-bold text-ink dark:text-slate-100">Heroes</h1>
+        <p class="mt-1 text-sm text-ink-soft dark:text-slate-400">Manage your league of heroes.</p>
       </div>
       <RouterLink
         to="/heroes/create"
@@ -61,16 +61,16 @@ onMounted(load)
       </RouterLink>
     </div>
 
-    <div class="rounded-2xl border border-border bg-surface shadow-sm">
+    <div class="rounded-2xl border border-border bg-surface shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div v-if="loading" class="space-y-3 p-6">
         <div
           v-for="i in 4"
           :key="i"
-          class="h-12 animate-pulse rounded-lg bg-surface-muted"
+          class="h-12 animate-pulse rounded-lg bg-surface-muted dark:bg-slate-800"
         />
       </div>
 
-      <div v-else-if="error" class="p-6 text-sm text-red-600">
+      <div v-else-if="error" class="p-6 text-sm text-red-600 dark:text-red-400">
         {{ error }}
       </div>
 
@@ -78,17 +78,17 @@ onMounted(load)
         v-else-if="heroes.length === 0"
         class="flex flex-col items-center gap-3 p-12 text-center"
       >
-        <p class="text-sm text-ink-soft">No heroes yet.</p>
+        <p class="text-sm text-ink-soft dark:text-slate-400">No heroes yet.</p>
         <RouterLink
           to="/heroes/create"
-          class="text-sm font-semibold text-brand-700 hover:text-brand-800"
+          class="text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
         >
           Create your first hero →
         </RouterLink>
       </div>
 
       <table v-else class="w-full text-left text-sm">
-        <thead class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft">
+        <thead class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400">
           <tr>
             <th class="px-6 py-3 font-semibold">ID</th>
             <th class="px-6 py-3 font-semibold">Name</th>
@@ -96,34 +96,34 @@ onMounted(load)
             <th class="px-6 py-3 text-right font-semibold">Actions</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-border">
+        <tbody class="divide-y divide-border dark:divide-slate-800">
           <tr
             v-for="hero in heroes"
             :key="hero.id"
-            class="transition-colors hover:bg-surface-muted"
+            class="transition-colors hover:bg-surface-muted dark:hover:bg-slate-800/50"
           >
-            <td class="px-6 py-3 font-mono text-ink-muted">#{{ hero.id }}</td>
-            <td class="px-6 py-3 font-medium text-ink">
+            <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">#{{ hero.id }}</td>
+            <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">
               <RouterLink
                 :to="`/heroes/${hero.id}`"
-                class="hover:text-brand-700"
+                class="hover:text-brand-700 dark:hover:text-brand-400"
               >
                 {{ hero.name }}
               </RouterLink>
             </td>
-            <td class="px-6 py-3 text-ink-soft">{{ hero.age ?? '—' }}</td>
+            <td class="px-6 py-3 text-ink-soft dark:text-slate-400">{{ hero.age ?? '—' }}</td>
             <td class="px-6 py-3 text-right">
               <div class="flex items-center justify-end gap-2">
                 <RouterLink
                   :to="`/heroes/${hero.id}`"
-                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700"
+                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-brand-700 dark:hover:text-brand-400"
                 >
                   Edit
                 </RouterLink>
                 <button
                   v-if="confirmId !== hero.id"
                   type="button"
-                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-red-300 hover:text-red-600"
+                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-red-300 hover:text-red-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-red-500 dark:hover:text-red-400"
                   @click="confirmId = hero.id"
                 >
                   Delete
@@ -139,7 +139,7 @@ onMounted(load)
                   </button>
                   <button
                     type="button"
-                    class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink"
+                    class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink dark:border-slate-700 dark:text-slate-300 dark:hover:text-slate-100"
                     @click="confirmId = null"
                   >
                     Cancel

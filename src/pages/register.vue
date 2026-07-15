@@ -65,14 +65,14 @@ async function handleSubmit() {
 <template>
   <div class="mx-auto max-w-md space-y-6">
     <div class="text-center">
-      <h1 class="text-2xl font-bold text-ink">Create account</h1>
-      <p class="mt-1 text-sm text-ink-soft">Register a new FastAPI account to get started.</p>
+      <h1 class="text-2xl font-bold text-ink dark:text-slate-100">Create account</h1>
+      <p class="mt-1 text-sm text-ink-soft dark:text-slate-400">Register a new FastAPI account to get started.</p>
     </div>
 
-    <div class="rounded-2xl border border-border bg-surface p-8 shadow-sm">
+    <div class="rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <form class="space-y-5" @submit.prevent="handleSubmit">
         <div>
-          <label for="username" class="mb-1.5 block text-sm font-medium text-ink">
+          <label for="username" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
             Username <span class="text-red-500">*</span>
           </label>
           <input
@@ -81,7 +81,7 @@ async function handleSubmit() {
             type="text"
             autocomplete="username"
             required
-            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
             placeholder="Choose a username"
           />
           <p v-if="fieldErrors.username" class="mt-1 text-xs text-red-600">
@@ -90,7 +90,7 @@ async function handleSubmit() {
         </div>
 
         <div>
-          <label for="email" class="mb-1.5 block text-sm font-medium text-ink">
+          <label for="email" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
             Email <span class="text-red-500">*</span>
           </label>
           <input
@@ -99,7 +99,7 @@ async function handleSubmit() {
             type="email"
             autocomplete="email"
             required
-            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
             placeholder="you@example.com"
           />
           <p v-if="fieldErrors.email" class="mt-1 text-xs text-red-600">
@@ -108,7 +108,7 @@ async function handleSubmit() {
         </div>
 
         <div>
-          <label for="password" class="mb-1.5 block text-sm font-medium text-ink">
+          <label for="password" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
             Password <span class="text-red-500">*</span>
           </label>
           <div class="relative">
@@ -118,12 +118,12 @@ async function handleSubmit() {
               :type="showPassword ? 'text' : 'password'"
               autocomplete="new-password"
               required
-              class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 pr-11 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+              class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 pr-11 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
               placeholder="At least 6 characters"
             />
             <button
               type="button"
-              class="absolute inset-y-0 right-0 flex items-center px-3 text-xs font-medium text-ink-muted hover:text-ink"
+              class="absolute inset-y-0 right-0 flex items-center px-3 text-xs font-medium text-ink-muted hover:text-ink dark:text-slate-500 dark:hover:text-slate-300"
               @click="showPassword = !showPassword"
             >
               {{ showPassword ? 'Hide' : 'Show' }}
@@ -136,7 +136,7 @@ async function handleSubmit() {
 
         <p
           v-if="error"
-          class="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-700"
+          class="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-700 dark:bg-red-950/50 dark:text-red-400"
         >
           {{ error }}
         </p>
@@ -170,9 +170,9 @@ async function handleSubmit() {
         </button>
       </form>
 
-      <p class="mt-6 text-center text-sm text-ink-soft">
+      <p class="mt-6 text-center text-sm text-ink-soft dark:text-slate-400">
         Already have an account?
-        <RouterLink to="/login" class="font-semibold text-brand-700 hover:text-brand-800">
+        <RouterLink to="/login" class="font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300">
           Sign in
         </RouterLink>
       </p>

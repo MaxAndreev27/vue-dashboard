@@ -95,26 +95,26 @@ onMounted(async () => {
     <div>
       <RouterLink
         to="/heroes"
-        class="text-sm font-medium text-ink-soft hover:text-ink"
+        class="text-sm font-medium text-ink-soft hover:text-ink dark:text-slate-400 dark:hover:text-slate-200"
       >
         ← Back to heroes
       </RouterLink>
     </div>
 
-    <div v-if="loading" class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm">
-      <div class="h-8 w-48 animate-pulse rounded bg-surface-muted" />
-      <div class="h-5 w-32 animate-pulse rounded bg-surface-muted" />
-      <div class="h-5 w-24 animate-pulse rounded bg-surface-muted" />
+    <div v-if="loading" class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div class="h-8 w-48 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
+      <div class="h-5 w-32 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
+      <div class="h-5 w-24 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
     </div>
 
     <div
       v-else-if="error && !hero"
-      class="rounded-2xl border border-border bg-surface p-12 text-center shadow-sm"
+      class="rounded-2xl border border-border bg-surface p-12 text-center shadow-sm dark:border-slate-800 dark:bg-slate-900"
     >
-      <p class="text-sm text-red-600">{{ error }}</p>
+      <p class="text-sm text-red-600 dark:text-red-400">{{ error }}</p>
       <RouterLink
         to="/heroes"
-        class="mt-3 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800"
+        class="mt-3 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
       >
         Back to heroes →
       </RouterLink>
@@ -129,14 +129,14 @@ onMounted(async () => {
             {{ hero.name.charAt(0).toUpperCase() }}
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-ink">{{ hero.name }}</h1>
-            <p class="font-mono text-sm text-ink-muted">#{{ hero.id }}</p>
+            <h1 class="text-2xl font-bold text-ink dark:text-slate-100">{{ hero.name }}</h1>
+            <p class="font-mono text-sm text-ink-muted dark:text-slate-500">#{{ hero.id }}</p>
           </div>
         </div>
         <button
           v-if="!editing"
           type="button"
-          class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700"
+          class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-brand-700 dark:hover:text-brand-400"
           @click="startEdit"
         >
           Edit
@@ -145,7 +145,7 @@ onMounted(async () => {
 
       <p
         v-if="error"
-        class="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-700"
+        class="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-700 dark:bg-red-950/50 dark:text-red-400"
       >
         {{ error }}
       </p>
@@ -153,34 +153,34 @@ onMounted(async () => {
       <!-- View mode -->
       <div
         v-if="!editing"
-        class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm"
+        class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"
       >
         <dl class="grid gap-4 sm:grid-cols-2">
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500">
               Name
             </dt>
-            <dd class="mt-1 text-sm font-medium text-ink">{{ hero.name }}</dd>
+            <dd class="mt-1 text-sm font-medium text-ink dark:text-slate-200">{{ hero.name }}</dd>
           </div>
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500">
               Age
             </dt>
-            <dd class="mt-1 text-sm text-ink">{{ hero.age ?? '—' }}</dd>
+            <dd class="mt-1 text-sm text-ink dark:text-slate-200">{{ hero.age ?? '—' }}</dd>
           </div>
         </dl>
 
-        <div class="border-t border-border pt-5">
+        <div class="border-t border-border pt-5 dark:border-slate-800">
           <button
             v-if="!deleteConfirm"
             type="button"
-            class="rounded-lg border border-red-200 px-4 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50"
+            class="rounded-lg border border-red-200 px-4 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-900 dark:text-red-400 dark:hover:bg-red-950/50"
             @click="deleteConfirm = true"
           >
             Delete hero
           </button>
           <div v-else class="flex items-center gap-3">
-            <span class="text-sm text-ink-soft">Delete this hero?</span>
+            <span class="text-sm text-ink-soft dark:text-slate-400">Delete this hero?</span>
             <button
               type="button"
               :disabled="deleting"
@@ -191,7 +191,7 @@ onMounted(async () => {
             </button>
             <button
               type="button"
-              class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink"
+              class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink dark:border-slate-700 dark:text-slate-300 dark:hover:text-slate-100"
               @click="deleteConfirm = false"
             >
               Cancel
@@ -203,25 +203,25 @@ onMounted(async () => {
       <!-- Edit mode -->
       <form
         v-else
-        class="space-y-5 rounded-2xl border border-border bg-surface p-8 shadow-sm"
+        class="space-y-5 rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"
         @submit.prevent="saveEdit"
       >
         <div>
-          <label for="edit-name" class="mb-1.5 block text-sm font-medium text-ink">
+          <label for="edit-name" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
             Name
           </label>
           <input
             id="edit-name"
             v-model="form.name"
             type="text"
-            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
         </div>
 
         <div>
           <label
             for="edit-secret"
-            class="mb-1.5 block text-sm font-medium text-ink"
+            class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
           >
             Secret name
           </label>
@@ -229,13 +229,13 @@ onMounted(async () => {
             id="edit-secret"
             v-model="form.secretName"
             type="text"
-            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
             placeholder="Leave blank to keep unchanged"
           />
         </div>
 
         <div>
-          <label for="edit-age" class="mb-1.5 block text-sm font-medium text-ink">
+          <label for="edit-age" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
             Age
           </label>
           <input
@@ -243,14 +243,14 @@ onMounted(async () => {
             v-model="form.age"
             type="number"
             min="0"
-            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition"
+            class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
         </div>
 
-        <div class="flex items-center justify-end gap-3 border-t border-border pt-5">
+        <div class="flex items-center justify-end gap-3 border-t border-border pt-5 dark:border-slate-800">
           <button
             type="button"
-            class="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-ink-soft transition hover:bg-surface-muted"
+            class="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-ink-soft transition hover:bg-surface-muted dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
             @click="cancelEdit"
           >
             Cancel

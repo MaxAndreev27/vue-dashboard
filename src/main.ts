@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from './router'
 
 import { client } from './api/client.gen'
+import { useThemeStore } from './stores/theme'
 
 export const FASTAPI_BASE_URL = 'https://fastapi-course-example.fly.dev'
 
@@ -28,5 +29,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+
+useThemeStore()
 
 app.mount('#app')
