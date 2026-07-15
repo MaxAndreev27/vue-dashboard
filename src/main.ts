@@ -8,8 +8,10 @@ import router from './router'
 
 import { client } from './api/client.gen'
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://fastapi-course-example.fly.dev'
+
 client.setConfig({
-  baseUrl: 'http://localhost:8000',
+  baseUrl: apiBaseUrl,
   headers: {
     Accept: 'application/json',
   },
