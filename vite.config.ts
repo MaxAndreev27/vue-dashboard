@@ -1,12 +1,17 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import VueRouter from 'vue-router/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    VueRouter({
+      routesFolder: 'src/pages',
+      dts: './typed-router.d.ts',
+    }),
     vue(),
     vueDevTools(),
   ],
