@@ -45,6 +45,55 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/heroes/': RouteRecordInfo<
+      '/heroes/',
+      '/heroes',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/heroes/[id]': RouteRecordInfo<
+      '/heroes/[id]',
+      '/heroes/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
+    '/heroes/create': RouteRecordInfo<
+      '/heroes/create',
+      '/heroes/create',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/login': RouteRecordInfo<
+      '/login',
+      '/login',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/profile': RouteRecordInfo<
+      '/profile',
+      '/profile',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/register': RouteRecordInfo<
+      '/register',
+      '/register',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/users/': RouteRecordInfo<
+      '/users/',
+      '/users',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -69,6 +118,62 @@ declare module 'vue-router/auto-routes' {
     'src/pages/about.vue': {
       routes:
         | '/about'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/heroes/index.vue': {
+      routes:
+        | '/heroes/'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/heroes/[id].vue': {
+      routes:
+        | '/heroes/[id]'
+      views:
+        | never
+      pathParamNames:
+        | 'id'
+    }
+    'src/pages/heroes/create.vue': {
+      routes:
+        | '/heroes/create'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/login.vue': {
+      routes:
+        | '/login'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/profile.vue': {
+      routes:
+        | '/profile'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/register.vue': {
+      routes:
+        | '/register'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/users/index.vue': {
+      routes:
+        | '/users/'
       views:
         | never
       pathParamNames:
