@@ -34,7 +34,7 @@ onMounted(async () => {
   <!-- Guest landing -->
   <div v-if="!auth.isAuthenticated" class="space-y-16">
     <section
-      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 px-6 py-20 text-center text-white shadow-lg sm:px-12"
+      class="relative overflow-hidden rounded-3xl bg-linear-to-br from-brand-700 via-brand-600 to-brand-800 px-6 py-20 text-center text-white shadow-lg sm:px-12"
     >
       <div
         class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"
@@ -158,7 +158,7 @@ onMounted(async () => {
   <!-- Authenticated dashboard -->
   <div v-else class="space-y-8">
     <section
-      class="overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-sm"
+      class="overflow-hidden rounded-2xl bg-linear-to-br from-brand-600 to-brand-800 p-8 text-white shadow-sm"
     >
       <h1 class="text-2xl font-bold sm:text-3xl">
         Welcome back, {{ auth.user?.username ?? 'hero' }}
