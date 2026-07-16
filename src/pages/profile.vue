@@ -17,10 +17,14 @@ const disabled = computed(() => (auth.user?.disabled ? 'Disabled' : 'Active'))
       <p class="mt-1 text-sm text-ink-soft dark:text-slate-400">Your account information.</p>
     </div>
 
-    <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div
+      class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
       <dl class="grid gap-4 sm:grid-cols-2">
         <div class="rounded-xl bg-surface-muted p-4 dark:bg-slate-800/60">
-          <dt class="text-xs uppercase tracking-wide text-ink-soft dark:text-slate-400">Username</dt>
+          <dt class="text-xs uppercase tracking-wide text-ink-soft dark:text-slate-400">
+            Username
+          </dt>
           <dd class="mt-2 text-lg font-semibold text-ink dark:text-slate-100">{{ username }}</dd>
         </div>
 
@@ -30,7 +34,9 @@ const disabled = computed(() => (auth.user?.disabled ? 'Disabled' : 'Active'))
         </div>
 
         <div class="rounded-xl bg-surface-muted p-4 dark:bg-slate-800/60 sm:col-span-2">
-          <dt class="text-xs uppercase tracking-wide text-ink-soft dark:text-slate-400">Account status</dt>
+          <dt class="text-xs uppercase tracking-wide text-ink-soft dark:text-slate-400">
+            Account status
+          </dt>
           <dd class="mt-2 text-lg font-semibold text-ink dark:text-slate-100">{{ disabled }}</dd>
         </div>
       </dl>

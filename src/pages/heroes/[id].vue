@@ -101,7 +101,10 @@ onMounted(async () => {
       </RouterLink>
     </div>
 
-    <div v-if="loading" class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div
+      v-if="loading"
+      class="space-y-4 rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
       <div class="h-8 w-48 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
       <div class="h-5 w-32 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
       <div class="h-5 w-24 animate-pulse rounded bg-surface-muted dark:bg-slate-800" />
@@ -157,13 +160,17 @@ onMounted(async () => {
       >
         <dl class="grid gap-4 sm:grid-cols-2">
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500">
+            <dt
+              class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500"
+            >
               Name
             </dt>
             <dd class="mt-1 text-sm font-medium text-ink dark:text-slate-200">{{ hero.name }}</dd>
           </div>
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500">
+            <dt
+              class="text-xs font-semibold uppercase tracking-wide text-ink-muted dark:text-slate-500"
+            >
               Age
             </dt>
             <dd class="mt-1 text-sm text-ink dark:text-slate-200">{{ hero.age ?? '—' }}</dd>
@@ -207,7 +214,10 @@ onMounted(async () => {
         @submit.prevent="saveEdit"
       >
         <div>
-          <label for="edit-name" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
+          <label
+            for="edit-name"
+            class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
+          >
             Name
           </label>
           <input
@@ -235,7 +245,10 @@ onMounted(async () => {
         </div>
 
         <div>
-          <label for="edit-age" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
+          <label
+            for="edit-age"
+            class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
+          >
             Age
           </label>
           <input
@@ -247,7 +260,9 @@ onMounted(async () => {
           />
         </div>
 
-        <div class="flex items-center justify-end gap-3 border-t border-border pt-5 dark:border-slate-800">
+        <div
+          class="flex items-center justify-end gap-3 border-t border-border pt-5 dark:border-slate-800"
+        >
           <button
             type="button"
             class="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-ink-soft transition hover:bg-surface-muted dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"

@@ -66,13 +66,20 @@ async function handleSubmit() {
   <div class="mx-auto max-w-md space-y-6">
     <div class="text-center">
       <h1 class="text-2xl font-bold text-ink dark:text-slate-100">Create account</h1>
-      <p class="mt-1 text-sm text-ink-soft dark:text-slate-400">Register a new FastAPI account to get started.</p>
+      <p class="mt-1 text-sm text-ink-soft dark:text-slate-400">
+        Register a new FastAPI account to get started.
+      </p>
     </div>
 
-    <div class="rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div
+      class="rounded-2xl border border-border bg-surface p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
       <form class="space-y-5" @submit.prevent="handleSubmit">
         <div>
-          <label for="username" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
+          <label
+            for="username"
+            class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
+          >
             Username <span class="text-red-500">*</span>
           </label>
           <input
@@ -108,7 +115,10 @@ async function handleSubmit() {
         </div>
 
         <div>
-          <label for="password" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
+          <label
+            for="password"
+            class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
+          >
             Password <span class="text-red-500">*</span>
           </label>
           <div class="relative">
@@ -146,12 +156,7 @@ async function handleSubmit() {
           :disabled="loading"
           class="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          <svg
-            v-if="loading"
-            class="h-4 w-4 animate-spin"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
+          <svg v-if="loading" class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
             <circle
               class="opacity-25"
               cx="12"
@@ -172,7 +177,10 @@ async function handleSubmit() {
 
       <p class="mt-6 text-center text-sm text-ink-soft dark:text-slate-400">
         Already have an account?
-        <RouterLink to="/login" class="font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300">
+        <RouterLink
+          to="/login"
+          class="font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300"
+        >
           Sign in
         </RouterLink>
       </p>

@@ -33,17 +33,22 @@ onMounted(async () => {
 <template>
   <!-- Guest landing -->
   <div v-if="!auth.isAuthenticated" class="space-y-16">
-    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 px-6 py-20 text-center text-white shadow-lg sm:px-12">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
+    <section
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 px-6 py-20 text-center text-white shadow-lg sm:px-12"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"
+      />
       <div class="relative mx-auto max-w-2xl">
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur-sm">
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur-sm"
+        >
           FastAPI · Vue 3 · Tailwind
         </span>
-        <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-          Heroes Admin
-        </h1>
+        <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">Heroes Admin</h1>
         <p class="mt-4 text-lg text-brand-50">
-          A dashboard for managing your league of heroes and users — powered by your FastAPI backend with OAuth2 password authentication.
+          A dashboard for managing your league of heroes and users — powered by your FastAPI backend
+          with OAuth2 password authentication.
         </p>
         <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <RouterLink
@@ -63,10 +68,24 @@ onMounted(async () => {
     </section>
 
     <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            />
           </svg>
         </div>
         <h3 class="mt-4 text-lg font-bold text-ink dark:text-slate-100">Hero management</h3>
@@ -74,10 +93,24 @@ onMounted(async () => {
           Create, view, update, and delete heroes in your roster with a clean, responsive interface.
         </p>
       </div>
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.494M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a9.127 9.127 0 01-.118-2.57m6.5 2.372a9.035 9.035 0 01-2.57-.118M12 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.494M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a9.127 9.127 0 01-.118-2.57m6.5 2.372a9.035 9.035 0 01-2.57-.118M12 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
+            />
           </svg>
         </div>
         <h3 class="mt-4 text-lg font-bold text-ink dark:text-slate-100">User directory</h3>
@@ -85,10 +118,24 @@ onMounted(async () => {
           Browse registered users, manage accounts, and view profile details at a glance.
         </p>
       </div>
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+            />
           </svg>
         </div>
         <h3 class="mt-4 text-lg font-bold text-ink dark:text-slate-100">Secure auth</h3>
@@ -110,29 +157,38 @@ onMounted(async () => {
 
   <!-- Authenticated dashboard -->
   <div v-else class="space-y-8">
-    <section class="overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-sm">
+    <section
+      class="overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-sm"
+    >
       <h1 class="text-2xl font-bold sm:text-3xl">
         Welcome back, {{ auth.user?.username ?? 'hero' }}
       </h1>
       <p class="mt-2 max-w-xl text-brand-50">
-        Manage your heroes roster, browse users, and keep the league up to date — all backed by your FastAPI service.
+        Manage your heroes roster, browse users, and keep the league up to date — all backed by your
+        FastAPI service.
       </p>
     </section>
 
     <section class="grid gap-4 sm:grid-cols-3">
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
         <p class="text-sm font-medium text-ink-soft dark:text-slate-400">Recent heroes</p>
         <p class="mt-2 text-3xl font-bold text-ink dark:text-slate-100">
           {{ loading ? '—' : heroes.length }}
         </p>
       </div>
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
         <p class="text-sm font-medium text-ink-soft dark:text-slate-400">Signed in as</p>
         <p class="mt-2 truncate text-3xl font-bold text-ink dark:text-slate-100">
           {{ auth.user?.username ?? '—' }}
         </p>
       </div>
-      <div class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div
+        class="rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
         <p class="text-sm font-medium text-ink-soft dark:text-slate-400">Backend</p>
         <p class="mt-2 text-3xl font-bold text-ink dark:text-slate-100">FastAPI</p>
       </div>
@@ -147,7 +203,10 @@ onMounted(async () => {
           <p class="text-sm font-medium text-ink-soft dark:text-slate-400">Manage</p>
           <p class="mt-1 text-xl font-bold text-ink dark:text-slate-100">Heroes</p>
         </div>
-        <span class="text-2xl text-ink-muted transition group-hover:text-brand-600 dark:text-slate-500 dark:group-hover:text-brand-400">→</span>
+        <span
+          class="text-2xl text-ink-muted transition group-hover:text-brand-600 dark:text-slate-500 dark:group-hover:text-brand-400"
+          >→</span
+        >
       </RouterLink>
       <RouterLink
         to="/users"
@@ -157,12 +216,19 @@ onMounted(async () => {
           <p class="text-sm font-medium text-ink-soft dark:text-slate-400">Browse</p>
           <p class="mt-1 text-xl font-bold text-ink dark:text-slate-100">Users</p>
         </div>
-        <span class="text-2xl text-ink-muted transition group-hover:text-brand-600 dark:text-slate-500 dark:group-hover:text-brand-400">→</span>
+        <span
+          class="text-2xl text-ink-muted transition group-hover:text-brand-600 dark:text-slate-500 dark:group-hover:text-brand-400"
+          >→</span
+        >
       </RouterLink>
     </section>
 
-    <section class="rounded-2xl border border-border bg-surface shadow-sm dark:border-slate-800 dark:bg-slate-900">
-      <div class="flex items-center justify-between border-b border-border px-6 py-4 dark:border-slate-800">
+    <section
+      class="rounded-2xl border border-border bg-surface shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
+      <div
+        class="flex items-center justify-between border-b border-border px-6 py-4 dark:border-slate-800"
+      >
         <h2 class="text-lg font-bold text-ink dark:text-slate-100">Recent heroes</h2>
         <RouterLink
           to="/heroes"
@@ -184,12 +250,17 @@ onMounted(async () => {
         {{ error }}
       </div>
 
-      <div v-else-if="heroes.length === 0" class="p-12 text-center text-sm text-ink-soft dark:text-slate-400">
+      <div
+        v-else-if="heroes.length === 0"
+        class="p-12 text-center text-sm text-ink-soft dark:text-slate-400"
+      >
         No heroes yet. Create your first hero.
       </div>
 
       <table v-else class="w-full text-left text-sm">
-        <thead class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400">
+        <thead
+          class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400"
+        >
           <tr>
             <th class="px-6 py-3 font-semibold">ID</th>
             <th class="px-6 py-3 font-semibold">Name</th>
@@ -204,7 +275,10 @@ onMounted(async () => {
           >
             <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">#{{ hero.id }}</td>
             <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">
-              <RouterLink :to="`/heroes/${hero.id}`" class="hover:text-brand-700 dark:hover:text-brand-400">
+              <RouterLink
+                :to="`/heroes/${hero.id}`"
+                class="hover:text-brand-700 dark:hover:text-brand-400"
+              >
                 {{ hero.name }}
               </RouterLink>
             </td>

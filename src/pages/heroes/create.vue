@@ -84,7 +84,10 @@ async function handleSubmit() {
       </div>
 
       <div>
-        <label for="secretName" class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200">
+        <label
+          for="secretName"
+          class="mb-1.5 block text-sm font-medium text-ink dark:text-slate-200"
+        >
           Secret name <span class="text-red-500">*</span>
         </label>
         <input
@@ -121,7 +124,9 @@ async function handleSubmit() {
         {{ error }}
       </p>
 
-      <div class="flex items-center justify-end gap-3 border-t border-border pt-5 dark:border-slate-800">
+      <div
+        class="flex items-center justify-end gap-3 border-t border-border pt-5 dark:border-slate-800"
+      >
         <RouterLink
           to="/heroes"
           class="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-ink-soft transition hover:bg-surface-muted dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"

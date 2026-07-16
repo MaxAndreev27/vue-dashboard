@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 import { heroesV1DeleteHero, heroesV1ReadHeroes } from '@/api/sdk.gen'
 import type { HeroPublic } from '@/api/types.gen'
-
-const router = useRouter()
 
 const heroes = ref<HeroPublic[]>([])
 const loading = ref(true)

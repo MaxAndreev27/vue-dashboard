@@ -1,13 +1,13 @@
-import './assets/main.css'
+import '@/assets/main.css'
 
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
-import { client } from './api/client.gen'
-import App from './App.vue'
-import { getToken } from './lib/token'
-import router from './router'
-import { useThemeStore } from './stores/theme'
+import { client } from '@/api/client.gen'
+import App from '@/App.vue'
+import { getToken } from '@/lib/token'
+import router from '@/router'
+import { useThemeStore } from '@/stores/theme'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://fastapi-course-example.fly.dev'
 
