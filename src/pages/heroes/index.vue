@@ -61,7 +61,9 @@ onMounted(load)
       </RouterLink>
     </div>
 
-    <div class="rounded-2xl border border-border bg-surface shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div
+      class="rounded-2xl border border-border bg-surface shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
       <div v-if="loading" class="space-y-3 p-6">
         <div
           v-for="i in 4"
@@ -87,69 +89,73 @@ onMounted(load)
         </RouterLink>
       </div>
 
-      <table v-else class="w-full text-left text-sm">
-        <thead class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400">
-          <tr>
-            <th class="px-6 py-3 font-semibold">ID</th>
-            <th class="px-6 py-3 font-semibold">Name</th>
-            <th class="px-6 py-3 font-semibold">Age</th>
-            <th class="px-6 py-3 text-right font-semibold">Actions</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-border dark:divide-slate-800">
-          <tr
-            v-for="hero in heroes"
-            :key="hero.id"
-            class="transition-colors hover:bg-surface-muted dark:hover:bg-slate-800/50"
+      <div v-else class="overflow-x-auto">
+        <table class="min-w-160 w-full text-left text-sm">
+          <thead
+            class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400"
           >
-            <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">#{{ hero.id }}</td>
-            <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">
-              <RouterLink
-                :to="`/heroes/${hero.id}`"
-                class="hover:text-brand-700 dark:hover:text-brand-400"
-              >
-                {{ hero.name }}
-              </RouterLink>
-            </td>
-            <td class="px-6 py-3 text-ink-soft dark:text-slate-400">{{ hero.age ?? '—' }}</td>
-            <td class="px-6 py-3 text-right">
-              <div class="flex items-center justify-end gap-2">
+            <tr>
+              <th class="px-6 py-3 font-semibold">ID</th>
+              <th class="px-6 py-3 font-semibold">Name</th>
+              <th class="px-6 py-3 font-semibold">Age</th>
+              <th class="px-6 py-3 text-right font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border dark:divide-slate-800">
+            <tr
+              v-for="hero in heroes"
+              :key="hero.id"
+              class="transition-colors hover:bg-surface-muted dark:hover:bg-slate-800/50"
+            >
+              <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">#{{ hero.id }}</td>
+              <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">
                 <RouterLink
                   :to="`/heroes/${hero.id}`"
-                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-brand-700 dark:hover:text-brand-400"
+                  class="hover:text-brand-700 dark:hover:text-brand-400"
                 >
-                  Edit
+                  {{ hero.name }}
                 </RouterLink>
-                <button
-                  v-if="confirmId !== hero.id"
-                  type="button"
-                  class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-red-300 hover:text-red-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-red-500 dark:hover:text-red-400"
-                  @click="confirmId = hero.id"
-                >
-                  Delete
-                </button>
-                <template v-else>
-                  <button
-                    type="button"
-                    :disabled="deletingId === hero.id"
-                    class="rounded-lg bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
-                    @click="handleDelete(hero)"
+              </td>
+              <td class="px-6 py-3 text-ink-soft dark:text-slate-400">{{ hero.age ?? '—' }}</td>
+              <td class="px-6 py-3 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <RouterLink
+                    :to="`/heroes/${hero.id}`"
+                    class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-brand-700 dark:hover:text-brand-400"
                   >
-                    {{ deletingId === hero.id ? 'Deleting…' : 'Confirm' }}
-                  </button>
+                    Edit
+                  </RouterLink>
                   <button
+                    v-if="confirmId !== hero.id"
                     type="button"
-                    class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink dark:border-slate-700 dark:text-slate-300 dark:hover:text-slate-100"
-                    @click="confirmId = null"
+                    class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-red-300 hover:text-red-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-red-500 dark:hover:text-red-400"
+                    @click="confirmId = hero.id"
                   >
-                    Cancel
+                    Delete
                   </button>
-                </template>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  <template v-else>
+                    <button
+                      type="button"
+                      :disabled="deletingId === hero.id"
+                      class="rounded-lg bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
+                      @click="handleDelete(hero)"
+                    >
+                      {{ deletingId === hero.id ? 'Deleting…' : 'Confirm' }}
+                    </button>
+                    <button
+                      type="button"
+                      class="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-soft hover:text-ink dark:border-slate-700 dark:text-slate-300 dark:hover:text-slate-100"
+                      @click="confirmId = null"
+                    >
+                      Cancel
+                    </button>
+                  </template>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>

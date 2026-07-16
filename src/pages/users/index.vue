@@ -59,34 +59,38 @@ onMounted(load)
         No users found.
       </div>
 
-      <table v-else class="w-full text-left text-sm">
-        <thead
-          class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400"
-        >
-          <tr>
-            <th class="px-6 py-3 font-semibold">ID</th>
-            <th class="px-6 py-3 font-semibold">Username</th>
-            <th class="px-6 py-3 font-semibold">Email</th>
-            <th class="px-6 py-3 font-semibold">Status</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-border dark:divide-slate-800">
-          <tr
-            v-for="user in users"
-            :key="user.id ?? user.username"
-            class="transition-colors hover:bg-surface-muted dark:hover:bg-slate-800/50"
+      <div v-else class="overflow-x-auto">
+        <table class="min-w-160 w-full text-left text-sm">
+          <thead
+            class="bg-surface-muted text-xs uppercase tracking-wide text-ink-soft dark:bg-slate-800/50 dark:text-slate-400"
           >
-            <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">
-              #{{ user.id ?? '—' }}
-            </td>
-            <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">{{ user.username }}</td>
-            <td class="px-6 py-3 text-ink-soft dark:text-slate-400">{{ user.email }}</td>
-            <td class="px-6 py-3 text-ink-soft dark:text-slate-400">
-              {{ user.disabled ? 'Disabled' : 'Active' }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <th class="px-6 py-3 font-semibold">ID</th>
+              <th class="px-6 py-3 font-semibold">Username</th>
+              <th class="px-6 py-3 font-semibold">Email</th>
+              <th class="px-6 py-3 font-semibold">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border dark:divide-slate-800">
+            <tr
+              v-for="user in users"
+              :key="user.id ?? user.username"
+              class="transition-colors hover:bg-surface-muted dark:hover:bg-slate-800/50"
+            >
+              <td class="px-6 py-3 font-mono text-ink-muted dark:text-slate-500">
+                #{{ user.id ?? '—' }}
+              </td>
+              <td class="px-6 py-3 font-medium text-ink dark:text-slate-100">
+                {{ user.username }}
+              </td>
+              <td class="px-6 py-3 text-ink-soft dark:text-slate-400">{{ user.email }}</td>
+              <td class="px-6 py-3 text-ink-soft dark:text-slate-400">
+                {{ user.disabled ? 'Disabled' : 'Active' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
