@@ -1,11 +1,9 @@
-import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
-import { authenticationV1LoginForAccessToken } from '@/api/sdk.gen'
-import { usersV1ReadUsersMe } from '@/api/sdk.gen'
+import { authenticationV1LoginForAccessToken, usersV1ReadUsersMe } from '@/api/sdk.gen'
 import type { User } from '@/api/types.gen'
-
-import { clearToken, getToken, setToken } from '@/main'
+import { clearToken, getToken, setToken } from '@/lib/token'
 
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(getToken())

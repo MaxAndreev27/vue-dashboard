@@ -8,13 +8,15 @@ const router = createRouter({
   routes,
 })
 
-const PUBLIC_ROUTES = ['/', '/login', '/register']
+const PUBLIC_ROUTES = ['/', '/login', '/register', '/heroes']
 
 router.beforeEach(async (to) => {
   const auth = useAuthStore()
   await auth.init()
 
-  const isPublic = PUBLIC_ROUTES.includes(to.path)
+  const isPublic = PUBLIC_ROUTES.some(
+    (route) => to.path === route || to.path.startsWith(`${route}/`),
+  )
 
   if (auth.isAuthenticated && (to.path === '/login' || to.path === '/register')) {
     return { path: '/' }
