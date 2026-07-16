@@ -43,7 +43,7 @@ async function handleLogout() {
           <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white">
             H
           </span>
-          Heroes Admin
+          <span class="hidden text-lg font-bold sm:inline">Heroes Admin</span>
         </RouterLink>
 
         <nav class="flex items-center gap-1 sm:gap-2">
